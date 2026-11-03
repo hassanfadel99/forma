@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استمارة انشطة الكشافة - جمعية كشافة الامام الحسين (ع)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========================================= -->
+    <!-- 1. واجهة البوابة الأمنية (تظهر أولاً)       -->
+    <!-- ========================================= -->
+    <div class="gate-wrapper" id="gateScreen">
+        <div class="gate-box">
+            <div class="gate-icon">
+                <i class="fa-solid fa-tent"></i>
+            </div>
+            <h2>بوابة الدخول الآمنة</h2>
+            <p class="gate-note">يجب السماح بمشاركة الموقع كـ احتراز أمني اذا لم تسمح لن تتمكن من ارسال استمارتك</p>
+            <button type="button" id="gateLocationBtn" class="gate-btn">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                <span class="btn-text">السماح للموقع</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- 2. واجهة الاستمارة (مخفية حتى يتم السماح)  -->
+    <!-- ========================================= -->
+    <div class="page-wrapper hidden" id="mainFormScreen">
+        
+        <!-- الهيدر الرسمي الكشفي -->
+        <header class="official-header">
+            <div class="header-content">
+                <div class="org-titles">
+                    <span class="org-badge"><i class="fa-solid fa-shield-check"></i> تم التوثيق الأمني للموقع</span>
+                    <h1 class="main-org-name">جمعية كشافة الامام الحسين (ع)</h1>
+                    <h2 class="sub-org-name">مفوضية البصرة</h2>
+                </div>
+                <div class="logo-box">
+                    <img src="https://i.ibb.co/qYtH9LFk/logo.png" alt="شعار جمعية كشافة الامام الحسين" class="custom-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/10425/10425313.png'">
+                </div>
+            </div>
+            <div class="header-bar">
+                <div class="form-title-bar">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <span>استمارة توثيق انشطة الكشافة</span>
+                </div>
+                <div class="required-note">
+                    <span>* تشير إلى أن السؤال مطلوب</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="form-panel">
+            <form id="activityForm" action="https://script.google.com/macros/s/AKfycbw1dRz-TJa_zSuVEfPbQywAy7dVxbSrtvDICA3qP6h7S0GUTs9ppc8qUyD2xtb--stY/exec" method="POST" target="hidden_iframe" novalidate>
+                
+                <div class="fields-grid">
+
+                    <!-- 1. اسم الفرقة -->
+                    <div class="field-box full-span">
+                        <label class="box-label">اسم الفرقة <span class="req-star">*</span></label>
+                        <div class="custom-dropdown" id="teamDropdown">
+                            <input type="hidden" name="اسم الفرقة" id="teamInput" required>
+                            <div class="dropdown-trigger" tabindex="0">
+                                <div class="trigger-right">
+                                    <i class="fa-solid fa-users-rectangle field-icon"></i>
+                                    <span class="selected-text placeholder">اختر اسم الفرقة من القائمة...</span>
+                                </div>
+                                <i class="fa-solid fa-angle-down arrow-icon"></i>
+                            </div>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-search">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text" placeholder="ابحث سريعاً عن الفرقة..." id="teamSearch" autocomplete="off">
+                                </div>
+                                <ul class="dropdown-list" id="teamList">
+                                    <li data-value="الأنشطة المركزية"><i class="fa-solid fa-sitemap"></i> الأنشطة المركزية</li>
+                                    <li data-value="فرقة الرياحين"><i class="fa-solid fa-leaf"></i> فرقة الرياحين</li>
+                                    <li data-value="فرقة الميادين"><i class="fa-solid fa-map-location-dot"></i> فرقة الميادين</li>
+                                    <li data-value="فرقة الأمام الباقر (ع)"><i class="fa-solid fa-user-group"></i> فرقة الأمام الباقر (ع)</li>
+                                    <li data-value="فرقة الأمام الجواد (ع)"><i class="fa-solid fa-user-group"></i> فرقة الأمام الجواد (ع)</li>
+                                    <li data-value="فرقة الأمام الصادق (ع)"><i class="fa-solid fa-user-group"></i> فرقة الأمام الصادق (ع)</li>
+                                    <li data-value="فرقة ولي العصر (عج)"><i class="fa-solid fa-user-group"></i> فرقة ولي العصر (عج)</li>
+                                    <li data-value="فرقة النجوم"><i class="fa-solid fa-star"></i> فرقة النجوم</li>
+                                    <li data-value="فرقة الحجة المنتظر(عج)"><i class="fa-solid fa-user-group"></i> فرقة الحجة المنتظر(عج)</li>
+                                    <li data-value="فرقة سيد علي الخرساني"><i class="fa-solid fa-user-group"></i> فرقة سيد علي الخرساني</li>
+                                    <li data-value="فرقة ألأمام الحسن المجتبى (ع)"><i class="fa-solid fa-user-group"></i> فرقة ألأمام الحسن المجتبى (ع)</li>
+                                    <li data-value="فرقة أبا الفضل (ع)"><i class="fa-solid fa-user-group"></i> فرقة أبا الفضل (ع)</li>
+                                    <li data-value="فرقة الأمام السجاد (ع)"><i class="fa-solid fa-user-group"></i> فرقة الأمام السجاد (ع)</li>
+                                    <li data-value="فرقة الأنشاد الكشفية"><i class="fa-solid fa-microphone"></i> فرقة الأنشاد الكشفية</li>
+                                    <li data-value="فرقة الأمام علي (ع)"><i class="fa-solid fa-user-group"></i> فرقة الأمام علي (ع)</li>
+                                    <li data-value="فرقة الشهيد ابو كرار"><i class="fa-solid fa-user-group"></i> فرقة الشهيد ابو كرار</li>
+                                    <li data-value="فرقة الأنصار"><i class="fa-solid fa-user-group"></i> فرقة الأنصار</li>
+                                    <li data-value="فرقة الأمام الرضا (ع)"><i class="fa-solid fa-user-group"></i> فرقة الأمام الرضا (ع)</li>
+                                    <li data-value="فرقة النوارس"><i class="fa-solid fa-dove"></i> فرقة النوارس</li>
+                                    <li data-value="فرقة أهل البيت (ع)"><i class="fa-solid fa-user-group"></i> فرقة أهل البيت (ع)</li>
+                                    <li data-value="الفريق الكروي"><i class="fa-solid fa-futbol"></i> الفريق الكروي</li>
+                                    <li data-value="فرقة سيد الجنوب"><i class="fa-solid fa-user-group"></i> فرقة سيد الجنوب</li>
+                                    <li data-value="فرقة المختار الثقفي"><i class="fa-solid fa-user-group"></i> فرقة المختار الثقفي</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> يرجى اختيار اسم الفرقة</span>
+                    </div>
+
+                    <!-- 2. الفئة -->
+                    <div class="field-box">
+                        <label class="box-label">الفئة <span class="req-star">*</span></label>
+                        <div class="custom-dropdown" id="categoryDropdown">
+                            <input type="hidden" name="الفئة" required>
+                            <div class="dropdown-trigger" tabindex="0">
+                                <div class="trigger-right">
+                                    <i class="fa-solid fa-layer-group field-icon"></i>
+                                    <span class="selected-text placeholder">اختيار...</span>
+                                </div>
+                                <i class="fa-solid fa-angle-down arrow-icon"></i>
+                            </div>
+                            <div class="dropdown-menu">
+                                <ul class="dropdown-list">
+                                    <li data-value="قادة"><i class="fa-solid fa-user-shield"></i> قادة</li>
+                                    <li data-value="جوالة"><i class="fa-solid fa-person-hiking"></i> جوالة</li>
+                                    <li data-value="كشافة"><i class="fa-solid fa-campground"></i> كشافة</li>
+                                    <li data-value="اشبال"><i class="fa-solid fa-child-reaching"></i> اشبال</li>
+                                    <li data-value="براعم"><i class="fa-solid fa-seedling"></i> براعم</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> يرجى اختيار الفئة</span>
+                    </div>
+
+                    <!-- 3. قائد الفرقة -->
+                    <div class="field-box">
+                        <label class="box-label" for="teamLeader">قائد الفرقة <span class="req-star">*</span></label>
+                        <div class="input-group">
+                            <i class="fa-solid fa-user-tie field-icon"></i>
+                            <input type="text" id="teamLeader" name="قائد الفرقة" placeholder="إجابتك" required>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> هذا الحقل مطلوب</span>
+                    </div>
+
+                    <!-- 4. رقم النشاط -->
+                    <div class="field-box">
+                        <label class="box-label" for="activityId">رقم النشاط</label>
+                        <div class="input-group">
+                            <i class="fa-solid fa-hashtag field-icon"></i>
+                            <input type="text" id="activityId" name="رقم النشاط" placeholder="إجابتك (إن وجد)">
+                        </div>
+                    </div>
+
+                    <!-- 5. عنوان النشاط -->
+                    <div class="field-box">
+                        <label class="box-label" for="activityTitle">عنوان النشاط <span class="req-star">*</span></label>
+                        <div class="input-group">
+                            <i class="fa-solid fa-pen-clip field-icon"></i>
+                            <input type="text" id="activityTitle" name="عنوان النشاط" placeholder="إجابتك" required>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> هذا الحقل مطلوب</span>
+                    </div>
+
+                    <!-- 6. نوع النشاط -->
+                    <div class="field-box">
+                        <label class="box-label">نوع النشاط <span class="req-star">*</span></label>
+                        <div class="custom-dropdown" id="activityTypeDropdown">
+                            <input type="hidden" name="نوع النشاط" required>
+                            <div class="dropdown-trigger" tabindex="0">
+                                <div class="trigger-right">
+                                    <i class="fa-solid fa-shapes field-icon"></i>
+                                    <span class="selected-text placeholder">اختيار...</span>
+                                </div>
+                                <i class="fa-solid fa-angle-down arrow-icon"></i>
+                            </div>
+                            <div class="dropdown-menu">
+                                <ul class="dropdown-list">
+                                    <li data-value="كشفي"><i class="fa-solid fa-tent"></i> كشفي</li>
+                                    <li data-value="ثقافي"><i class="fa-solid fa-book-open"></i> ثقافي</li>
+                                    <li data-value="ديني"><i class="fa-solid fa-mosque"></i> ديني</li>
+                                    <li data-value="اخلاقي"><i class="fa-solid fa-hands-holding"></i> اخلاقي</li>
+                                    <li data-value="رياضي"><i class="fa-solid fa-futbol"></i> رياضي</li>
+                                    <li data-value="ترفيهي"><i class="fa-solid fa-face-smile"></i> ترفيهي</li>
+                                    <li data-value="ميداني"><i class="fa-solid fa-map-location"></i> ميداني</li>
+                                    <li data-value="عقائدي"><i class="fa-solid fa-scale-balanced"></i> عقائدي</li>
+                                    <li data-value="تربوي"><i class="fa-solid fa-graduation-cap"></i> تربوي</li>
+                                    <li data-value="فني"><i class="fa-solid fa-palette"></i> فني</li>
+                                    <li data-value="اعلامي"><i class="fa-solid fa-camera"></i> اعلامي</li>
+                                    <li data-value="خدمي"><i class="fa-solid fa-handshake-angle"></i> خدمي</li>
+                                    <li data-value="بيئي"><i class="fa-solid fa-tree"></i> بيئي</li>
+                                    <li data-value="صحي"><i class="fa-solid fa-heart-pulse"></i> صحي</li>
+                                    <li data-value="علمي"><i class="fa-solid fa-flask"></i> علمي</li>
+                                    <li data-value="تنظيمي"><i class="fa-solid fa-sitemap"></i> تنظيمي</li>
+                                    <li data-value="اخرى"><i class="fa-solid fa-plus"></i> اخرى</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> يرجى اختيار نوع النشاط</span>
+                    </div>
+
+                    <!-- 7. قائد النشاط -->
+                    <div class="field-box">
+                        <label class="box-label" for="activityLeader">قائد النشاط <span class="req-star">*</span></label>
+                        <div class="input-group">
+                            <i class="fa-solid fa-user-check field-icon"></i>
+                            <input type="text" id="activityLeader" name="قائد النشاط" placeholder="إجابتك" required>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> هذا الحقل مطلوب</span>
+                    </div>
+
+                    <!-- 8. عدد المشاركين -->
+                    <div class="field-box">
+                        <label class="box-label" for="participantsCount">عدد المشاركين <span class="req-star">*</span></label>
+                        <div class="input-group">
+                            <i class="fa-solid fa-users field-icon"></i>
+                            <input type="number" id="participantsCount" name="عدد المشاركين" min="0" placeholder="إجابتك" required>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> هذا الحقل مطلوب</span>
+                    </div>
+
+                    <!-- 9. عدد المستهدفين -->
+                    <div class="field-box">
+                        <label class="box-label" for="targetCount">عدد المستهدفين <span class="req-star">*</span></label>
+                        <div class="input-group">
+                            <i class="fa-solid fa-bullseye field-icon"></i>
+                            <input type="number" id="targetCount" name="عدد المستهدفين" min="0" placeholder="إجابتك" required>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> هذا الحقل مطلوب</span>
+                    </div>
+
+                    <!-- 10. التاريخ -->
+                    <div class="field-box">
+                        <label class="box-label" for="date">التاريخ <span class="req-star">*</span></label>
+                        <div class="input-group">
+                            <i class="fa-regular fa-calendar field-icon"></i>
+                            <input type="date" id="date" name="التاريخ" required>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> يرجى تحديد التاريخ</span>
+                    </div>
+
+                    <!-- 11. اليوم -->
+                    <div class="field-box">
+                        <label class="box-label">اليوم <span class="req-star">*</span></label>
+                        <div class="custom-dropdown" id="dayDropdown">
+                            <input type="hidden" name="اليوم" id="dayInput" required>
+                            <div class="dropdown-trigger" tabindex="0">
+                                <div class="trigger-right">
+                                    <i class="fa-regular fa-clock field-icon"></i>
+                                    <span class="selected-text placeholder">اختيار...</span>
+                                </div>
+                                <i class="fa-solid fa-angle-down arrow-icon"></i>
+                            </div>
+                            <div class="dropdown-menu">
+                                <ul class="dropdown-list">
+                                    <li data-value="السبت"><i class="fa-solid fa-calendar-day"></i> السبت</li>
+                                    <li data-value="الأحد"><i class="fa-solid fa-calendar-day"></i> الأحد</li>
+                                    <li data-value="الإثنين"><i class="fa-solid fa-calendar-day"></i> الإثنين</li>
+                                    <li data-value="الثلاثاء"><i class="fa-solid fa-calendar-day"></i> الثلاثاء</li>
+                                    <li data-value="الأربعاء"><i class="fa-solid fa-calendar-day"></i> الأربعاء</li>
+                                    <li data-value="الخميس"><i class="fa-solid fa-calendar-day"></i> الخميس</li>
+                                    <li data-value="الجمعة"><i class="fa-solid fa-calendar-day"></i> الجمعة</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> يرجى اختيار اليوم</span>
+                    </div>
+
+                    <!-- 12. المكان -->
+                    <div class="field-box full-span">
+                        <label class="box-label" for="location">المكان <span class="req-star">*</span></label>
+                        <div class="input-group">
+                            <i class="fa-solid fa-location-dot field-icon"></i>
+                            <input type="text" id="location" name="المكان" placeholder="إجابتك" required>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> يرجى ذكر مكان النشاط</span>
+                    </div>
+
+                    <!-- 13. اسماء المشاركين -->
+                    <div class="field-box full-span">
+                        <label class="box-label" for="participantNames">اسماء المشاركين <span class="req-star">*</span></label>
+                        <div class="input-group textarea-group">
+                            <i class="fa-solid fa-users-line field-icon"></i>
+                            <textarea id="participantNames" name="اسماء المشاركين" rows="4" placeholder="إجابتك..." required></textarea>
+                        </div>
+                        <span class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> يرجى كتابة أسماء المشاركين</span>
+                    </div>
+
+                </div>
+
+                <!-- الحقول المخفية لأغراض الأمان -->
+                <input type="hidden" name="deviceInfo" id="deviceInfo">
+                <input type="hidden" name="ipAddress" id="ipAddress">
+                <input type="hidden" name="exactLocation" id="exactLocation">
+
+                <!-- زر الإرسال -->
+                <div class="submit-area">
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">إرسال الاستمارة</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+
+            </form>
+        </main>
+
+    </div>
+
+    <!-- نافذة الإشعار -->
+    <div class="modal-overlay" id="statusModal">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 id="modalTitle">تم إرسال الاستمارة بنجاح</h3>
+            <button type="button" class="modal-close-btn" id="closeModalBtn">إغلاق</button>
+        </div>
+    </div>
+
+    <!-- نافذة الرفض الصارمة مع دليل فك الحظر -->
+    <div class="modal-overlay" id="locationHelpModal">
+        <div class="modal-box">
+            <div class="modal-icon" style="color: var(--danger); background: #fff1f2; border-color: rgba(225, 29, 72, 0.2);">
+                <i class="fa-solid fa-ban"></i>
+            </div>
+            <h3 style="color: var(--danger);">حظر أمني</h3>
+            <p style="font-size: 16.5px; color: var(--text-secondary); margin: 15px 0 10px; font-weight: 700; line-height: 1.6;">
+                تم حظرك من استخدام الموقع. يرجى السماح بالموقع أولاً.
+            </p>
+            <div style="background: #f8fafc; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: right; font-size: 13px; color: #475569; border: 1px solid #e2e8f0; line-height: 1.5;">
+                <i class="fa-solid fa-unlock-keyhole" style="color: var(--accent); margin-left: 5px;"></i>
+                <b>لتغيير رأيك وفك الحظر:</b> اضغط على رمز القفل (🔒) الموجود بجانب الرابط في أعلى المتصفح، واختر "السماح" للموقع، ثم حدّث الصفحة.
+            </div>
+            <button type="button" class="modal-close-btn" id="closeHelpModalBtn">حسناً</button>
+        </div>
+    </div>
+
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+    <script src="script.js"></script>
+</body>
+</html>
